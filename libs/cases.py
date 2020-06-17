@@ -1,14 +1,15 @@
 from .reader import get_csv_reader
 from .countries import countries
 
-covid_cases = []
+
 base_url = "https://github.com/CSSEGISandData/COVID-19/raw/master/csse_covid_19_data/csse_covid_19_daily_reports/"
 
 
 def get_covid_cases(date):
     csv_url = base_url + date + ".csv"
-
     reader = get_csv_reader(csv_url)
+
+    covid_cases = []
 
     for row in reader:
         if row[3] in countries:
